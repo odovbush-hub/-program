@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>EduSpace — платформа тестування та навчання</title>
+  <meta name="description" content="Інтерактивний навчальний тренажер для закладу освіти: тренування, іспити на час, досягнення, сертифікати та конструктор тестів.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EduSpace">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="text-ink font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Шапка -->
+  <header class="no-print app-header">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <button class="flex items-center gap-2.5" data-action="nav" data-view="catalog" aria-label="EduSpace — на головну">
+        <span class="logo-icon"><i data-lucide="graduation-cap"></i></span>
+        <span class="text-lg font-extrabold tracking-tight hidden min-[440px]:inline">Edu<span class="text-primary">Space</span></span>
+      </button>
+
+      <nav id="nav" class="nav" aria-label="Головне меню" hidden></nav>
+
+      <div class="flex items-center gap-2">
+        <button id="install-btn" class="btn btn-primary btn-sm" hidden title="Встановити застосунок">
+          <i data-lucide="download"></i><span class="hidden sm:inline">Встановити</span>
+        </button>
+        <div id="user-area" class="flex items-center gap-2"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основний вміст: екрани рендеряться з js/app.js -->
+  <main id="app" class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-8" aria-live="polite"></main>
+
+  <footer class="no-print app-footer">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
+      <p>© 2026 EduSpace · Інтерактивна платформа тестування та навчання</p>
+      <p class="flex items-center gap-1.5"><i data-lucide="wifi-off" class="w-4 h-4"></i>Працює навіть без інтернету</p>
+    </div>
+  </footer>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="no-print" aria-live="polite"></div>
+
+  <!-- Бібліотеки (локально, щоб працювало офлайн) -->
+  <script src="js/vendor/lucide.min.js"></script>
+  <script src="js/vendor/qrcode.js"></script>
+  <script src="js/vendor/confetti.browser.js"></script>
+
+  <!-- Код застосунку -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/badges.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>
